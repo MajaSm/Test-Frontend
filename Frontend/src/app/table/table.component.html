@@ -1,0 +1,144 @@
+<html>
+    <body>
+        <div class="table " >
+
+            <div class=" center fullWidth verticalPosition " *ngIf="isDesktop()" >
+                <h3 class="fullWidth center">Ime</h3>
+                <h3 class="fullWidth center">Prezime</h3>
+                <h3 class="fullWidth center">Datum rodenja</h3>
+                <h3 class="fullWidth center">Tel/mob</h3>
+                <h3 class="fullWidth center">Email</h3>
+                <h3 class="fullWidth center">Spol</h3>
+                <h3 class="fullWidth center"></h3>
+            </div>
+            
+            <div *ngFor="let user of users" class=" center  background marginTop-mid  fullWidth verticalAligment  mobileWidth mobileMarginTopSmall" >
+
+                <div class="verticalAligment center fullWidth horizontalPosition">
+                    <div class="fullWidth center wordBreak mobileBottomBorder">
+                        <div class=" center fullWidth horizontalPosition " *ngIf="isMobile()">
+                            <h3 class="fullWidth center">Ime</h3>
+                        </div>
+
+                        <div class=" center fullWidth horizontalPosition mobilePaddingSmall">
+                            <p  *ngIf="!editMode[user.id]">{{user.name}}</p>
+                            <textarea [(ngModel)]="textareaName" class="margin-small" [hidden]="!editMode[user.id]">{{user.name}}</textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="fullWidth center wordBreak mobileBottomBorder">
+                        <div class=" center fullWidth horizontalPosition " *ngIf="isMobile()">
+                            <h3 class="fullWidth center">Prezime</h3>
+                        </div>
+
+                        <div class=" center fullWidth horizontalPosition mobilePaddingSmall">
+                            <p  *ngIf="!editMode[user.id]">{{user.surname}}</p>
+                            <textarea [(ngModel)]="textareaSurname" class="margin-small" [hidden]="!editMode[user.id]">{{user.surname}}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="fullWidth center wordBreak mobileBottomBorder">
+                        <div class=" center fullWidth horizontalPosition " *ngIf="isMobile()">
+                            <h3 class="fullWidth center">Datum rodenja</h3>
+                        </div>
+
+                        <div class=" center fullWidth horizontalPosition mobilePaddingSmall">
+                            <p  *ngIf="!editMode[user.id]">{{user.dateOfBirth}}</p>
+                            <textarea [(ngModel)]="textareaDateOfBirth" class="margin-small" [hidden]="!editMode[user.id]">{{user.dateOfBirth}}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="fullWidth center wordBreak mobileBottomBorder">
+                        <div class=" center fullWidth horizontalPosition " *ngIf="isMobile()">
+                            <h3 class="fullWidth center">Tel/mob</h3>
+                        </div>
+
+                        <div class=" center fullWidth horizontalPosition mobilePaddingSmall">
+                            <p  *ngIf="!editMode[user.id]">{{user.number}}</p>
+                            <textarea [(ngModel)]="textareaNumber" class="margin-small" [hidden]="!editMode[user.id]">{{user.number}}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="fullWidth center wordBreak mobileBottomBorder"  >
+                        <div class=" center fullWidth horizontalPosition " *ngIf="isMobile()">
+                            <h3 class="fullWidth center">Email</h3>
+                        </div>
+
+                        <div class=" center fullWidth horizontalPosition mobilePaddingSmall">
+                            <p *ngIf="!editMode[user.id]">{{user.email}}</p>
+                            <textarea [(ngModel)]="textareaEmail" class="margin-small" [hidden]="!editMode[user.id]">{{user.email}}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="fullWidth center wordBreak mobileBottomBorder">
+                        <div class=" center fullWidth horizontalPosition " *ngIf="isMobile()">
+                            <h3 class="fullWidth center">Spol</h3>
+                        </div>
+
+                        <div class=" center fullWidth horizontalPosition mobilePaddingSmall">
+                            <p  *ngIf="!editMode[user.id]">{{user.gender}}</p>
+                            <select [(ngModel)]="textareaGender" [hidden]="!editMode[user.id]">
+                                {{user.gender}}
+                                <option value="Zensko">Žensko</option>
+                                <option value="Musko">Muško</option>
+                                <option value="Ostalo">Ostalo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="fullWidth center buttons">
+                        <button class="buttonEdit" [hidden]="editMode[user.id]" (click)="onEditClick(user)"><i class="fa fa-edit" aria-hidden="true"></i></button>
+                        <button class="buttonSave" [hidden]="!editMode[user.id]" (click)="onSaveClick(user)"><i class="fa fa-check" aria-hidden="true"></i></button>
+                        <button class="buttonDelete" [hidden]="editMode[user.id]" (click)="onDeleteClick(user)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        <button class="buttonDelete" [hidden]="!editMode[user.id]" (click)="onCancelClick(user.id)"><i class="fa fa-times" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table horizontalPosition">
+            <div class="addNew horizontalAligment">
+                <button class="buttonAddNew" (click)="onAddNewClick(newID)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+            </div>
+                
+            <div [hidden]="!addNewPerson[newID]" class="marginBottom-mid "> 
+                <h4>Dodaj novu osobu</h4>
+                <div class=" center  background marginTop-mid horizontalPosition" >
+                    <div class="fullWidth center ">
+                        <textarea [(ngModel)]="textareaAddNewName" placeholder="Ime" class="margin-small"  ></textarea>
+                    </div>
+
+                    <div class="fullWidth center ">
+                        <textarea [(ngModel)]="textareaAddNewSurname" placeholder="Prezime" class="margin-small"  ></textarea>
+                    </div>
+
+                    <div class="fullWidth center ">
+                        <textarea [(ngModel)]="textareaAddNewDateOfBirth" placeholder="Datum rodenja" class="margin-small"  ></textarea>
+                    </div>
+                    
+                    <div class="fullWidth center ">
+                        <textarea [(ngModel)]="textareaAddNewNumber" placeholder="Broj mobitela" class="margin-small"  ></textarea>
+                    </div>
+
+                    <div class="fullWidth center ">
+                        <textarea [(ngModel)]="textareaAddNewEmail" placeholder="Email" class="margin-small"  ></textarea>
+                    </div>
+
+                    <div class="fullWidth center ">
+                        <select [(ngModel)]="textareaAddNewGender">
+                            <option value="" disabled selected>Spol</option>
+                            <option value="Zensko">Žensko</option>
+                            <option value="Musko">Muško</option>
+                            <option value="Ostalo">Ostalo</option>
+                        </select>
+                    </div>
+
+                    <div class="fullWidth center">
+                        <button class="buttonSave" (click)="onAddUserClick()"><i class="fa fa-check" aria-hidden="true"></i></button>
+                        <button class="buttonDelete"  (click)="onCancelClick(newID)"><i class="fa fa-times" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

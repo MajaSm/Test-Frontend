@@ -1,0 +1,164 @@
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+textarea{
+
+    resize: none;
+    width: 100%;
+    max-width: fit-content;
+    max-height: 60px;
+    border-radius: 5px;
+}
+
+select{
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    
+}
+.marginTop-mid{
+    margin-top: 10px;
+}
+.margin-small{
+    margin: 10px;
+}
+.marginBottom-mid{
+    margin-bottom: 20px;
+}
+
+.horizontalAligment{
+    display: flex;
+    flex-direction: column;
+}
+.verticalAligment{
+    display: flex;
+    flex-direction: row;
+}
+.fullWidth{
+    width: 100%;
+}
+.table{
+  margin: 0 auto;
+  width: 100%;
+  max-width: 90%;
+
+}
+
+.background{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.addNew{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 10px;
+}
+.buttons{
+    width: 100%;
+}
+.buttonAddNew{
+    background-color: green;
+    border:none;
+    border-width: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    font-size: 15px;
+    cursor: pointer;
+    color: white;
+}
+.buttonAddNew:hover{
+    background-color: white;
+    color: green;
+}
+.buttonDelete{
+    background-color: rgb(201, 57, 57);
+    border:none;
+    border-width: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    font-size: 15px;
+    cursor: pointer;
+    color: white;
+    margin-left: 5px;
+}
+.buttonDelete:hover{
+    background-color: rgb(245, 242, 242);
+    color: red;
+}
+.buttonEdit{
+    background-color: rgb(60, 124, 243);
+    border:none;
+    border-width: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    font-size: 15px;
+    cursor: pointer;
+    color: white;
+}
+.buttonEdit:hover{
+    background-color: rgb(245, 242, 242);
+    color: blue;
+}
+.buttonSave{
+    background-color: green;
+    border:none;
+    border-width: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    font-size: 15px;
+    cursor: pointer;
+    color: white;
+}
+.buttonSave:hover{
+    color: green;
+    background-color: rgb(245, 242, 242);
+}
+
+
+.wordBreak{
+    height: auto;
+    word-break: break-all;
+}
+@media only screen and (max-width: 992px) {
+    .table {
+     display: flex;
+     flex-direction: column;
+     margin: 0 auto;
+    }
+    .verticalPosition{
+        display: flex;
+        flex-direction: row;
+    }
+    .horizontalPosition{
+        display: flex;
+        flex-direction: column;
+    }
+    button{
+        margin: 10px;
+    }
+    .mobilePaddingSmall{
+    padding-right: 10px;
+    }
+    h3{
+        font-size: 16px;
+    }
+    .mobileMarginTopSmall{
+        margin-top: 10px;
+    }
+    .mobileBottomBorder{
+        border-bottom: 1px solid rgba(204, 200, 200, 0.171);
+    }
+  
+}
